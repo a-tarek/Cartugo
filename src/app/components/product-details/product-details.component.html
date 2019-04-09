@@ -1,0 +1,22 @@
+<div class="card flex-row ">
+  <div class="col align-content-center">
+    <span *ngFor="let image of images" >
+      <div class="thumbnail-container">
+        <a class="thumbnail" (click)="changeTo(image)"><img src="{{image.url}}" alt=""></a>
+      </div>
+    </span>
+  </div>
+  <div class="col align-items-center">
+  <img src={{big_image}}>
+</div>
+  <div class="info-box-big">
+    <span class="category-big ">Originals</span>
+    <span class="title-big "><em>{{product$.title}}</em></span>
+    <span class="price-big ">{{product$.price}}$</span>
+    <p class="description-big">{{product$.description}}</p>
+    <a (click)="addToCart()"> <i class="bag fas fa-shopping-bag"></i></a>
+
+  </div>
+</div>
+
+
