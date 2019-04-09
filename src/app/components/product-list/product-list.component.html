@@ -1,0 +1,9 @@
+<div class="container-fluid">
+    <div class="row">
+  
+      <app-product-card *ngFor="let product of products| paginate: { itemsPerPage: 9, currentPage: p }"
+        [product]="product"
+        class="card-container"></app-product-card>
+    </div>
+  </div>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
