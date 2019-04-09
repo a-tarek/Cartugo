@@ -1,18 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { LoginComponent } from './login/login.component';
-import { ProductDetailsComponent } from './product-details/product-details.component';
-import { CartComponent } from './cart/cart.component';
-import { SingupComponent } from './singup/singup.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
 
 const routes: Routes = [
-  {path:'',component:HomeComponent},
-  {path:'login',component:LoginComponent},
-  {path:'signup',component:SingupComponent},
+  {path:'',component:ProductListComponent},
+  {path:'products',component:ProductListComponent},
   {path:'products/:id',component:ProductDetailsComponent},
-  {path:'cart',component:CartComponent},
   {path:'**', component:NotFoundComponent}
 ];
 
