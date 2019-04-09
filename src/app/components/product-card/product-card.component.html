@@ -1,0 +1,17 @@
+<div class="card row flex-column">
+  <a routerLink="/products/{{product.id}}">
+
+    <img src="{{product.images[0].url}}" alt="">
+  </a>
+
+    <i class="far fa-heart heart"></i>
+    
+    <div class="info ">
+      <span class="category">Originals</span>
+      <span class="title "><em>{{product.title}}</em></span>
+      <div class="price-bag">
+        <span class="price ">{{product.price}}$</span>
+        <a (click)="addToCart()"> <i class="bag fas fa-shopping-bag"></i></a>
+      </div>
+    </div>
+</div>

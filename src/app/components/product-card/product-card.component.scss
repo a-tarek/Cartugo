@@ -1,0 +1,55 @@
+.card{
+    margin-bottom: 1px;
+    &:hover{
+        border:1px rgb(238, 118, 110) solid;
+    }
+    a:hover{
+        text-decoration: none;
+    }  
+    .heart{
+        position: absolute;
+        font-size: 20px;
+        top: 20px;
+        right: 30px;
+         
+        color: black;
+    }
+    .info{
+    padding: 3rem;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+        .category{
+            font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            letter-spacing: 2px;
+            color:gray;
+        }
+        .title{
+            color: #583e58;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 900;
+
+        }
+        .price-bag{
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+        }
+        .price{
+            font-size: 15px;
+            font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            letter-spacing: 2px;
+            color: rgb(170, 124, 39);
+            // flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ];
+        }
+        .bag{
+            &:hover{
+                transform: scale(1.2);
+                cursor: pointer;
+            }
+            font-size: 25px;
+            color: green;
+        }
+    }
+}
