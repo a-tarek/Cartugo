@@ -1,15 +1,18 @@
+<span *ngIf="itemsCount" >
 <div mat-icon-button [matMenuTriggerFor]="appMenu" class="nav-link bag">
-    <span *ngIf="itemsCount" >
     <mat-icon matBadge="{{itemsCount}}" matBadgeColor="warn">shopping_cart</mat-icon>
-    </span>
 </div>
+</span>
 <mat-menu #appMenu="matMenu" >
     <div class="container">
         <app-small-product-viewer *ngFor="let cartProduct of cart" [cartProduct]="cartProduct"
         (removeProduct)="removeProduct($event)"
         >
         </app-small-product-viewer>
-        <p>Total {{totalPrice}}</p>
+        <div class="row">
+            <app-product-title class="title-med col-4 align-self-center" title="Total: "></app-product-title>
+            <app-product-price class="price-big col-5 " price="{{totalPrice}}"></app-product-price>
+            <span routerLink="/cart" class="col-3 align-self-center"> <mat-icon class="forward">forward</mat-icon></span>
+        </div>
     </div>
-        
 </mat-menu>

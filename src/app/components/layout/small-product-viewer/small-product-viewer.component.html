@@ -2,14 +2,21 @@
     <div class="col-4">
       <img src="{{imageUrl}}">
     </div>
-    <div class="justify-content-end product-info col-6">
+    <div class="col-4">
       <p class="title justify-self-end">
-        {{cartProduct.product.title}}
+        <app-product-title class="title-big"title="{{cartProduct.product.title}}" class="title-sml"></app-product-title>
       </p>
-      <p class="title justify-self-end">
-        {{cartProduct.product.price}} x {{cartProduct.count}}
-      </p>
+      <div class="justify-self-end">
+        <div class="row price-big">
+          <app-product-price class=" col-6" price="{{cartProduct.product.price}}"></app-product-price> 
+          <app-price-multiplier class="col-6" multiple="{{cartProduct.count}}"></app-price-multiplier>
+        </div>
+      </div>
     </div>
-    <button mat-button class="remove justify-content-end col-1" (click)="remove($event);">X</button>
+    <div class="col-2">
+      
+      <button mat-button class="remove" (click)="remove($event);"><mat-icon color="warn">delete_sweep</mat-icon></button>
+
+    </div>
   </div>
   <hr style="border: 1px solid rgb(108, 108, 114);" />

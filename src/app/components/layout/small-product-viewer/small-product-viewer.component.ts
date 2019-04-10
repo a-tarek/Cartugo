@@ -22,18 +22,19 @@ export class SmallProductViewerComponent implements OnInit {
   ngOnInit() {
     this.imageUrl = this.imageService.getImage(
       this.cartProduct.product.images[0].id,
-      this.cartProduct.product.images[0].fileName,80);
+      this.cartProduct.product.images[0].fileName,64);
 
-    this.cart$.getItemsCount().subscribe(data=> this.itemsCount)
+    this.cart$.getItemsCount().subscribe(data=> this.itemsCount=data)
 
   }
 
   remove(event:Event){
     this.removeProduct.emit(this.cartProduct);
     
-
-    if(this.itemsCount)
+    if(this.itemsCount){
       event.stopPropagation()
+      
+    }
   }
 
 }

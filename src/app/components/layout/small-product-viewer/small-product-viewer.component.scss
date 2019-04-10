@@ -1,18 +1,14 @@
-
+@import"product";
 .product-info ,.remove-container{
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end !important;
     flex-direction: column;
-    .title{
-        font-size: 12px;
-    }
+
        
 }
 .remove{
     padding: 0px;
     margin:0px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: rgb(121, 15, 15);
-
 }

@@ -15,11 +15,14 @@ export class SmallCartViewerComponent implements OnInit {
   itemsCount:number; 
   totalPrice:number;
 
-  constructor(private cart$: CartService) {}
-  ngOnInit() {
+  constructor(private cart$: CartService) {
     this.cart$.getCart().subscribe(data=> this.cart = data );
     this.cart$.getTotalPrice().subscribe(data=> this.totalPrice = data);
     this.cart$.getItemsCount().subscribe(data=> this.itemsCount = data);
+
+  }
+  ngOnInit() {
+   
   }
 
   removeProduct(product:CartProduct){
