@@ -13,7 +13,7 @@ import { CartService } from 'src/app/services/cart/cart.service';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  product$: Product;
+  product: Product;
   big_image: string;
   images: ProductImage[];
 
@@ -25,12 +25,12 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit() {
 
     let i = this.route.params.subscribe(data => {
-      this.product$ = data.id;
+      this.product = data.id;
     });
-    this.product$ = this.data.getShoe(this.product$);
-    this.big_image = this.imageService.getImage(this.product$.images[0].id, this.product$.images[0].fileName, 612);
+    this.product = this.data.getShoe(this.product);
+    this.big_image = this.imageService.getImage(this.product.images[0].id, this.product.images[0].fileName, 612);
     this.images = [];
-    this.product$.images.forEach(img => {
+    this.product.images.forEach(img => {
 
       this.images.push({
         id: img.id,
@@ -44,6 +44,6 @@ export class ProductDetailsComponent implements OnInit {
     this.big_image = this.imageService.getImage(image.id, image.fileName, 612);
   }
   addToCart():void{
-    this.cartService.add(this.product$);
+    this.cartService.add(this.product);
   }
 }

@@ -1,3 +1,4 @@
+@import "variables";
 .card{
     margin-bottom: 1px;
     &:hover{
@@ -25,7 +26,7 @@
             color:gray;
         }
         .title{
-            color: #583e58;
+            color: $product-title;
             text-transform: uppercase;
             font-size: 12px;
             font-weight: 900;
@@ -38,9 +39,7 @@
         }
         .price{
             font-size: 15px;
-            font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-            letter-spacing: 2px;
-            color: rgb(170, 124, 39);
+            
             // flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ];
         }
         .bag{

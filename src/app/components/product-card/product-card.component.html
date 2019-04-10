@@ -4,14 +4,16 @@
     <img src="{{product.images[0].url}}" alt="">
   </a>
 
-    <i class="far fa-heart heart"></i>
-    
-    <div class="info ">
-      <span class="category">Originals</span>
-      <span class="title "><em>{{product.title}}</em></span>
-      <div class="price-bag">
-        <span class="price ">{{product.price}}$</span>
-        <a (click)="addToCart()"> <i class="bag fas fa-shopping-bag"></i></a>
-      </div>
+  <i class="far fa-heart heart"></i>
+
+  <div class="info ">
+    <span class="category">Originals</span>
+    <app-product-title class="title-med" title="{{product.title}}"></app-product-title>
+    <span class="title "></span>
+    <div class="price-bag">
+    <app-product-price class="price-med" price="{{product.price}}"></app-product-price>
+
+      <a (click)="addToCart()"> <i class="bag fas fa-shopping-bag"></i></a>
     </div>
+  </div>
 </div>

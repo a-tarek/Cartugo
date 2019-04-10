@@ -1,3 +1,5 @@
+@import "variables";
+@import "product";
 
 .thumbnail-container{
     display: flex;
@@ -13,23 +15,9 @@
 .info-box-big{
     display: flex;
     flex-direction: column;
-    font-family: AdihausDIN;
-    .category-big{
+ 
 
-    }
-    .title-big{
-        color: #583e58;
-        text-transform: uppercase;
-        font-size: 25px;
-        font-weight: 900;
-    }
-    .price-big{
-        font-size: 15px;
-        font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        letter-spacing: 2px;
-        color: rgb(170, 124, 39);
-    }
-    .description-big,.category-big{
+.category-big{
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         font-size: 12px;
         color: rgb(71, 42, 42);
@@ -39,7 +27,6 @@
             transform: scale(1.2);
             cursor: pointer;
         }
-        font-size: 25px;
         color: green;
     }
 }
