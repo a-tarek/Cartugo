@@ -1,0 +1,12 @@
+@import "variables";
+
+.price{
+    font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 2px;
+    color: $product-price;
+
+}
+
+.dollar-sign{
+    color: $dollar-sign;
+}
