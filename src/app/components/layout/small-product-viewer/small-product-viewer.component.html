@@ -1,0 +1,15 @@
+  <div class="row product">
+    <div class="col-4">
+      <img src="{{imageUrl}}">
+    </div>
+    <div class="justify-content-end product-info col-6">
+      <p class="title justify-self-end">
+        {{cartProduct.product.title}}
+      </p>
+      <p class="title justify-self-end">
+        {{cartProduct.product.price}} x {{cartProduct.count}}
+      </p>
+    </div>
+    <button mat-button class="remove justify-content-end col-1" (click)="remove($event);">X</button>
+  </div>
+  <hr style="border: 1px solid rgb(108, 108, 114);" />
