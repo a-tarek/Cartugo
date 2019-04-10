@@ -19,7 +19,10 @@ export class CartService {
   private totalPrice$:BehaviorSubject<number> = new BehaviorSubject(0);
 
 
-  constructor() {  
+  constructor() {
+    let storedCart = JSON.parse(localStorage.getItem('cart'));
+    this.cart = (storedCart)? storedCart:[];
+    this.updateSubsribers();
   } 
 
 
@@ -33,6 +36,12 @@ export class CartService {
       this.cart.push({ product: product, count: 1 })
     
     this.updateSubsribers();
+    this.updateLocalStorage();
+  }
+
+
+  updateLocalStorage(){
+    localStorage.setItem('cart', JSON.stringify(this.cart));
   }
 
  
@@ -42,6 +51,8 @@ export class CartService {
     this.cart.splice(cpid, 1);
 
     this.updateSubsribers();
+    this.updateLocalStorage();
+
   }
 
   getCart():Observable<Array<CartProduct>>{
