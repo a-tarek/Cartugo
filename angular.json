@@ -13,6 +13,7 @@
           "style": "scss"
         }
       },
+      
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -32,6 +33,11 @@
                 "input": "./node_modules/bootstrap/dist/css/bootstrap.css"
               }
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./src/styles"
+              ]
+            },
             "scripts": [],
             "es5BrowserSupport": true
           },
