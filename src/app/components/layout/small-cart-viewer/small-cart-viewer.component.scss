@@ -1,0 +1,19 @@
+.bag,.likes{
+    font-size: 15px;
+}
+.bag{
+    cursor: pointer;
+}   
+
+#appMenu{
+
+    min-width: 10000px;
+}
+
+.icon {
+    color: white;
+}
+/* Note: If you're using an SVG icon, you should make the class target the `<svg>` element */
+.white-icon svg {
+    fill: white;
+}
