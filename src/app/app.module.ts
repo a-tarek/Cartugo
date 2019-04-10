@@ -24,7 +24,6 @@ import { ProductSizeComponent } from './components/shared/product-size/product-s
 import { ProductPriceComponent } from './components/shared/product-price/product-price.component';
 import { ProductDescriptionComponent } from './components/shared/product-description/product-description.component';
 import { PriceMultiplierComponent } from './components/shared/price-multiplier/price-multiplier.component';
-import { CartProductCardComponent } from './components/cart-product-card/cart-product-card.component';
 
 
 
@@ -46,7 +45,6 @@ import { CartProductCardComponent } from './components/cart-product-card/cart-pr
     ProductSizeComponent,
     ProductDescriptionComponent,
     PriceMultiplierComponent,
-    CartProductCardComponent
   ],
   imports: [
     BrowserModule,

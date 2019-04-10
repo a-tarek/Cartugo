@@ -8,5 +8,6 @@ export interface Product{
     urlTo: string;
     sizes: string[];
     description: string;
+    defimage?:string;
     images: ProductImage[];
 }
