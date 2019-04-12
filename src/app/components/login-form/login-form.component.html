@@ -5,8 +5,12 @@
 </p>
 <div class="row">
   <div class="col-6">
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)" >
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
       <div class="login-form">
+
+        <span *ngIf="response && !response.success">
+          <mat-error class="col-12 validation error">{{response.errors}}</mat-error>
+        </span>
         <mat-form-field class="col-12">
           <input id="email" matInput type="email" placeholder="EMAIL ADDRESS *" formControlName="email" color="green">
 
@@ -19,28 +23,24 @@
         <mat-form-field class="col-12">
           <input id="password" matInput type="password" placeholder="PASSWORD" formControlName="password">
         </mat-form-field>
-        <span *ngIf="submited &&  loginForm.controls.password.invalid"
-          >
+        <span *ngIf="submited &&  loginForm.controls.password.invalid">
           <span *ngIf="loginForm.controls.password.errors.required">
             <mat-error class="col-12 validation ">Please enter a password.</mat-error>
           </span>
           <span *ngIf="loginForm.controls.password.errors.minlength">
-              <mat-error class="col-12 validation error">Password is too short.</mat-error>
+            <mat-error class="col-12 validation error">Password is too short.</mat-error>
           </span>
 
           <span *ngIf="loginForm.controls.password.errors.maxlength">
-              <mat-error class="col-12 validation error">Password is too long.</mat-error>
+            <mat-error class="col-12 validation error">Password is too long.</mat-error>
           </span>
         </span>
 
-        <button mat-raised-button class="col-12 text btn login-btn" type="submit" (click)="clicked()"
-          ><span>Log in </span>
+        <button mat-raised-button class="col-12 text btn login-btn" type="submit" (click)="clicked()"><span>Log in
+          </span>
           <mat-icon class="icon"> arrow_forward_ios</mat-icon>
         </button>
 
-          <span *ngIf="loginResponse && !loginResponse.success">
-            <mat-error class="col-12 validation error">{{loginResponse.errors}}</mat-error>
-        </span>
       </div>
     </form>
   </div>
@@ -50,7 +50,7 @@
       Don't have an account ?
     </p>
     <a routerLink="/register" mat-raised-button (click)="updateName()" class="col-12 text btn register-btn">
-      <span >Register Now</span>
+      <span>Register Now</span>
       <mat-icon class="icon"> arrow_forward_ios</mat-icon>
 
     </a>
