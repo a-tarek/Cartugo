@@ -27,6 +27,8 @@ import { PriceMultiplierComponent } from './components/shared/price-multiplier/p
 import { LoginFormComponent } from './components/login-form/login-form.component';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { RegisterFormComponent } from './components/register-form/register-form.component';
+import { AuthRedirectorComponent } from './auth-redirector/auth-redirector.component';
 
 
 @NgModule({
@@ -47,7 +49,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ProductDescriptionComponent,
     PriceMultiplierComponent,
     LoginFormComponent,
-    
+    RegisterFormComponent,
+    AuthRedirectorComponent
   ],
   imports: [
     BrowserModule,

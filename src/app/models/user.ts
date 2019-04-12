@@ -3,5 +3,4 @@ export interface User {
     firstName?: string;
     lastName?: string;
     password?: string;
-    logged_in:boolean;
 }

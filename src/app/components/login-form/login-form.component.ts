@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators,FormGroupDirective,NgForm } from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { LoginResponse } from 'src/app/models/login-response';
+import { Response } from 'src/app/models/response';
 import {Location} from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UrlService } from 'src/app/services/url/url.service';
@@ -18,7 +18,7 @@ import { routerNgProbeToken } from '@angular/router/src/router_module';
 export class LoginFormComponent implements OnInit {
 
   submited:boolean = false;
-  loginResponse:LoginResponse;
+  response:Response;
   redirectUrl: string;
   
   email:string;
@@ -49,8 +49,9 @@ export class LoginFormComponent implements OnInit {
 
   onSubmit(form){
     if(form.valid){
-      this.loginResponse = this.authService.login(form.controls.email.value, form.controls.password.value)
-      if(this.loginResponse.success){
+      this.response = this.authService.attempt(form.controls.email.value, form.controls.password.value)
+      if(this.response.success){
+        console.log('this.redirectUrl', this.redirectUrl);
           this.router.navigate([this.redirectUrl])
       }
     }
@@ -60,7 +61,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   log(value){
-    console.log('value', value);
+    console.log('value', value);  
   }
 
 }

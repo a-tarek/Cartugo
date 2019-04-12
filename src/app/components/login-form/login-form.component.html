@@ -1,3 +1,5 @@
+<app-auth-redirector url='/login'></app-auth-redirector>
+
 <p class="text text-big">
   LOGIN
 </p>
@@ -47,9 +49,9 @@
     <p class="text">
       Don't have an account ?
     </p>
-    <button mat-raised-button (click)="updateName()" class="col-12 text btn register-btn">
-      <span>Register Now</span>
+    <a routerLink="/register" mat-raised-button (click)="updateName()" class="col-12 text btn register-btn">
+      <span >Register Now</span>
       <mat-icon class="icon"> arrow_forward_ios</mat-icon>
 
-    </button>
+    </a>
   </div>

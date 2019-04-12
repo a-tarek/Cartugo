@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../models/user';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { LoginResponse } from '../../models/login-response';
+import { Response } from '../../models/response';
+import { LoadedRouterConfig } from '@angular/router/src/config';
 
 @Injectable({
   providedIn: 'root'
@@ -11,20 +12,9 @@ export class AuthService {
   loggedIn$: BehaviorSubject<User> = new BehaviorSubject(null);
   users: User[];
 
-  resp: LoginResponse = {
-    success: false,
-    user: null,
-    errors: "Email and password do not match"
-  };
-
+  resp: Response ;
 
   constructor() {
-    localStorage.setItem('users', JSON.stringify([{
-      email: "a.tarek.elsayed@gmail.com",
-      password: "123456",
-      firstName: "Ahmed",
-      lastName: "Tarek"
-    }]))
     this.users = JSON.parse(localStorage.getItem('users'))
     this.loggedIn$.next(JSON.parse(localStorage.getItem('loggedIn')));
   }
@@ -36,23 +26,56 @@ export class AuthService {
   }
 
 
-  login(email: string, password: string) {
-    this.users.forEach(u => {
-      if (u.email === email) {
-        if (u.password === password) {
+  attempt(email: string, password: string):Response {
+    this.resp={
+      success: false,
+      user: null,
+      errors: "Email and password do not match"
+    };
+    this.users.forEach(user => {
+      if (user.email === email) {
+        if (user.password === password) {
           this.resp = {
             success: true,
-            user: u,
+            user: user,
             errors: ''
           }
-          let { password, ...user } = u; // removing password from user
-          localStorage.setItem('loggedIn', JSON.stringify(user));
-          this.loggedIn$.next(u);
+          this.login(user)
         }
       }
     })
     return this.resp;
   }
+
+login(u){
+  let { password, ...user } = u; // removing password from user
+  localStorage.setItem('loggedIn', JSON.stringify(user));
+  this.loggedIn$.next(u);
+}
+
+  register(user:User):Response{
+      this.resp = this.canAdd(user)
+      if(this.resp.success){
+      this.users = [...this.users, user]
+      localStorage.setItem('users', JSON.stringify(this.users))
+      this.login(user)
+    }
+    return this.resp
+  }
+
+  private canAdd(user):Response{
+    return !(this.users.filter(value=> value.email === user.email).length)
+    ? {
+      success:true, 
+      user:user,
+      errors:''
+    }:{
+      success: false,
+      user: null,
+      errors: "Email already exists"
+    };
+  }
+
 
 
   getLoggedIn(): Observable<User> {
