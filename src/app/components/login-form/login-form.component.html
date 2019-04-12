@@ -9,7 +9,7 @@
       <div class="login-form">
 
         <span *ngIf="response && !response.success">
-          <mat-error class="col-12 validation error">{{response.errors}}</mat-error>
+          <mat-error class="col-12 validation error">{{response.errors|uppercase}}</mat-error>
         </span>
         <mat-form-field class="col-12">
           <input id="email" matInput type="email" placeholder="EMAIL ADDRESS *" formControlName="email" color="green">
