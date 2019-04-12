@@ -9,14 +9,14 @@
       <div class="login-form">
 
         <span *ngIf="response && !response.success">
-          <mat-error class="col-12 validation error">{{response.errors}}</mat-error>
+          <mat-error class="col-12 validation error">{{response.errors|uppercase}}</mat-error>
         </span>
         <mat-form-field class="col-12">
           <input id="email" matInput type="email" placeholder="EMAIL ADDRESS *" formControlName="email" color="green">
 
         </mat-form-field>
         <span *ngIf="submited && loginForm.controls.email.invalid" class="">
-          <mat-error class="col-12 validation error">Please enter a valid e-mail address.</mat-error>
+          <mat-error class="col-12 validation error">PLEASE ENTER A VALID EMAIL ADDRESS</mat-error>
         </span>
 
 
@@ -25,18 +25,18 @@
         </mat-form-field>
         <span *ngIf="submited &&  loginForm.controls.password.invalid">
           <span *ngIf="loginForm.controls.password.errors.required">
-            <mat-error class="col-12 validation ">Please enter a password.</mat-error>
+            <mat-error class="col-12 validation ">PLEASE ENTER A PASSWORD</mat-error>
           </span>
           <span *ngIf="loginForm.controls.password.errors.minlength">
-            <mat-error class="col-12 validation error">Password is too short.</mat-error>
+            <mat-error class="col-12 validation error">PASSWORD IS TOO SHORT</mat-error>
           </span>
 
           <span *ngIf="loginForm.controls.password.errors.maxlength">
-            <mat-error class="col-12 validation error">Password is too long.</mat-error>
+            <mat-error class="col-12 validation error">PASSWORD IS TOO LONG</mat-error>
           </span>
         </span>
 
-        <button mat-raised-button class="col-12 text btn login-btn" type="submit" (click)="clicked()"><span>Log in
+        <button mat-raised-button class="col-12 text btn login-btn" type="submit" (click)="clicked()"><span>LOG IN
           </span>
           <mat-icon class="icon"> arrow_forward_ios</mat-icon>
         </button>

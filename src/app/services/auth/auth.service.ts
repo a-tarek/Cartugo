@@ -30,7 +30,7 @@ export class AuthService {
     this.resp={
       success: false,
       user: null,
-      errors: "Email or password is incorrect"
+      errors: "Email or password is incorrect "
     };
     this.users.forEach(user => {
       if (user.email === email) {
