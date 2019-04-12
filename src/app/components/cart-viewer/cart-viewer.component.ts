@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/services/cart/cart.service';
 import { ImageService } from 'src/app/services/image/image.service';
 import { CartProduct } from 'src/app/models/cart-product';
+import { UrlService } from 'src/app/services/url/url.service';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-cart-viewer',
@@ -12,15 +16,18 @@ export class CartViewerComponent implements OnInit {
 
   cart:CartProduct[];
   totalPrice:number;
-  displayedColumns: string[] = ['title', 'price', 'count'];
-  dataSource = [];
-  constructor(private cart$:CartService, private imageService:ImageService) { 
+  user:User;
+
+
+  constructor(private cart$:CartService, private imageService:ImageService,
+    private urlSerivce:UrlService,private router:Router,authService:AuthService) { 
     this.cart$.getCart().subscribe(data=> {
       this.cart = data;
-      this.dataSource = this.cart;
       this.cart.forEach(p=>p.product.defimage = imageService.getFirstImage(p.product, 128));
     });
     this.cart$.getTotalPrice().subscribe(data=>this.totalPrice = data)
+
+    authService.getLoggedIn().subscribe( u => this.user=u)
   }
 
   ngOnInit() {
@@ -31,6 +38,13 @@ export class CartViewerComponent implements OnInit {
     this.cart$.remove(product);
   }
   checkout(){
-    this.cart$.empty()
+    if(!this.user){
+    this.urlSerivce.setRedirectUrl(this.router.url)
+    this.router.navigate(['/login'])
+    }
+    else{
+      this.cart$.empty()
+      this.router.navigate(['/'])
+      }
   }
 }
