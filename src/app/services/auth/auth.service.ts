@@ -15,7 +15,7 @@ export class AuthService {
   resp: Response ;
 
   constructor() {
-    this.users = JSON.parse(localStorage.getItem('users'))
+    this.users = JSON.parse(localStorage.getItem('users')) || []
     this.loggedIn$.next(JSON.parse(localStorage.getItem('loggedIn')));
   }
 
