@@ -1,31 +1,34 @@
 <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
-<div class="container row">
-    <div class="col-8">
-        
-        <span mdbTableCol *ngFor="let c of cart">
+
+<span *ngIf= cart>
+    <div class="container row">
+        <div class="col-8">
+            
+            <span mdbTableCol *ngFor="let c of cart">
+                <div class="row">
+                    
+                    <img src="{{c.product.defimage}}">
+                    <app-product-title class="title-norm col-2 align-self-end" title="{{c.product.title}}"></app-product-title>
+                    <app-product-price class="title-norm col-1  align-self-end" price="{{c.product.price}}"></app-product-price>
+                    <app-price-multiplier class="title-norm col-1  align-self-end" multiple="{{c.count}}">
+                    </app-price-multiplier>
+                    
+                    <button mat-button class=" col-2 align-self-end" (click)="removeProduct(c);">
+                        <mat-icon color="warn">delete_sweep</mat-icon>
+                    </button>
+                </div>
+            </span>
+        </div>
+        <div class="col-2 align-self-center row">
+            
             <div class="row">
-                
-                <img src="{{c.product.defimage}}">
-                <app-product-title class="title-norm col-2 align-self-end" title="{{c.product.title}}"></app-product-title>
-                <app-product-price class="title-norm col-1  align-self-end" price="{{c.product.price}}"></app-product-price>
-                <app-price-multiplier class="title-norm col-1  align-self-end" multiple="{{c.count}}">
-                </app-price-multiplier>
-                
-                <button mat-button class=" col-2 align-self-end" (click)="removeProduct(c);">
-                    <mat-icon color="warn">delete_sweep</mat-icon>
-                </button>
-            </div>
-        </span>
-    </div>
-    <div class="col-2 align-self-center row">
-        
-        <div class="row">
-            <app-product-title class="title-big col-6 " title="Total: "></app-product-title>
-            <app-product-price class="title-big col-6 " price="{{totalPrice}}"></app-product-price>
-            <button mat-button class=" checkout-btn col-12" (click)="removeProduct(c);">
+                <app-product-title class="title-big col-6 " title="Total: "></app-product-title>
+                <app-product-price class="title-big col-6 " price="{{totalPrice}}"></app-product-price>
+                <button mat-button class=" checkout-btn col-12" (click)="checkout();">
                 Checkout
             </button>
         </div>
     </div>
 </div>
+</span>

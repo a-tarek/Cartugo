@@ -30,4 +30,7 @@ export class CartViewerComponent implements OnInit {
     console.log('product', product);
     this.cart$.remove(product);
   }
+  checkout(){
+    this.cart$.empty()
+  }
 }
