@@ -3,13 +3,24 @@
 
 
     <div class="nav-top  ">
-   
+
       <a routerLink="/products"><i class="logo fab fa-angular"></i></a>
-      <ul>
-        <app-small-cart-viewer></app-small-cart-viewer>
-        <li class="nav-link username "><em>Welcome back a-tarek</em></li>
-        <li class="nav-link logout">Logout</li>
-      </ul>
+      
+      <span class="nav">
+          <app-small-cart-viewer></app-small-cart-viewer>
+
+        <span *ngIf="this.user">
+          <span class="nav-link username ">
+            <em>Welcome back {{this.user.firstName}}</em>
+          </span>
+          <span (click)="logOut()" class="nav-link logout">Logout</span>
+        </span>
+
+        <span *ngIf=!this.user>
+            <a (click)="logIn()" class="nav-link login">Login</a>
+        </span>
+
+      </span>
     </div>
     <div class="nav-bottom"></div>
   </div>

@@ -21,14 +21,17 @@ nav{
             color: #f0f1e6;
             background-color:#4e4968d8;
             margin: 0px;
-            ul{
-                li:hover{
+            .nav{
+                .nav-link:hover{
                     cursor: pointer;
                 }
              
                 display: flex;
                 .bag,.likes{
                     font-size: 15px;
+                }
+                a{
+                    color: inherit;
                 }
             }
             
@@ -38,6 +41,8 @@ nav{
                 justify-content: flex-start;
                 font-size: 60px;
             }
+
+
             
         }
    

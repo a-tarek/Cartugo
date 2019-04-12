@@ -14,7 +14,7 @@ import{NgxPaginationModule} from 'ngx-pagination';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { SmallCartViewerComponent } from './components/layout/small-cart-viewer/small-cart-viewer.component';
 
-import {MatButtonModule,MatCheckboxModule,MatToolbarModule,MatInputModule,MatProgressSpinnerModule,MatCardModule,MatMenuModule, MatIconModule, MatBadgeModule, MatTableModule} from '@angular/material';
+import {MatButtonModule,MatCheckboxModule,MatToolbarModule,MatInputModule,MatProgressSpinnerModule,MatCardModule,MatMenuModule, MatIconModule, MatBadgeModule, MatTableModule, MatFormField, MatSelect, MatSelectModule, MatFormFieldModule, MatError, MatHint} from '@angular/material';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SmallProductViewerComponent } from './components/layout/small-product-viewer/small-product-viewer.component';
@@ -24,8 +24,9 @@ import { ProductSizeComponent } from './components/shared/product-size/product-s
 import { ProductPriceComponent } from './components/shared/product-price/product-price.component';
 import { ProductDescriptionComponent } from './components/shared/product-description/product-description.component';
 import { PriceMultiplierComponent } from './components/shared/price-multiplier/price-multiplier.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
-
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -45,6 +46,8 @@ import { PriceMultiplierComponent } from './components/shared/price-multiplier/p
     ProductSizeComponent,
     ProductDescriptionComponent,
     PriceMultiplierComponent,
+    LoginFormComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,10 @@ import { PriceMultiplierComponent } from './components/shared/price-multiplier/p
     NgxPaginationModule,
     NgbModule.forRoot(),
     MatButtonModule, MatCheckboxModule,MatToolbarModule,MatInputModule,MatProgressSpinnerModule,MatCardModule,MatMenuModule,MatIconModule,MatBadgeModule,MatTableModule,
-    BrowserAnimationsModule 
+    MatFormFieldModule,MatSelectModule,MatInputModule,MatButtonModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule  
   ],
   providers: [],
   bootstrap: [AppComponent]

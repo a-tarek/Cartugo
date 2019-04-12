@@ -49,7 +49,7 @@ export class CartService {
   remove(cartProduct: CartProduct): void {
     let cpid = this.cart.findIndex(p => p.product.id === cartProduct.product.id);
     this.cart.splice(cpid, 1);
-
+    
     this.updateSubsribers();
     this.updateLocalStorage();
 
