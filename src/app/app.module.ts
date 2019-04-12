@@ -14,7 +14,7 @@ import{NgxPaginationModule} from 'ngx-pagination';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { SmallCartViewerComponent } from './components/layout/small-cart-viewer/small-cart-viewer.component';
 
-import {MatButtonModule,MatCheckboxModule,MatToolbarModule,MatInputModule,MatProgressSpinnerModule,MatCardModule,MatMenuModule, MatIconModule, MatBadgeModule, MatTableModule, MatFormField, MatSelect, MatSelectModule, MatFormFieldModule, MatError, MatHint} from '@angular/material';
+import {MatButtonModule,MatCheckboxModule,MatToolbarModule,MatInputModule,MatProgressSpinnerModule,MatCardModule,MatMenuModule, MatIconModule, MatBadgeModule, MatTableModule, MatFormField, MatSelect, MatSelectModule, MatFormFieldModule, MatError, MatHint, MatSnackBarModule} from '@angular/material';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SmallProductViewerComponent } from './components/layout/small-product-viewer/small-product-viewer.component';
@@ -58,7 +58,7 @@ import { AuthRedirectorComponent } from './auth-redirector/auth-redirector.compo
     NgxPaginationModule,
     NgbModule.forRoot(),
     MatButtonModule, MatCheckboxModule,MatToolbarModule,MatInputModule,MatProgressSpinnerModule,MatCardModule,MatMenuModule,MatIconModule,MatBadgeModule,MatTableModule,
-    MatFormFieldModule,MatSelectModule,MatInputModule,MatButtonModule,
+    MatFormFieldModule,MatSelectModule,MatInputModule,MatButtonModule,MatSnackBarModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule  

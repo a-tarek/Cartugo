@@ -4,7 +4,7 @@
     <img src="{{product.images[0].url}}" alt="">
   </a>
 
-  <i class="far fa-heart heart"></i>
+  <!-- <i class="far fa-heart heart"></i> -->
 
   <div class="info ">
     <span class="category">Originals</span>
@@ -13,7 +13,7 @@
     <div class="price-bag">
     <app-product-price class="price-med" price="{{product.price}}"></app-product-price>
 
-      <a (click)="addToCart()"> <i class="bag fas fa-shopping-bag"></i></a>
+      <a (click)="addToCart()" > <i class="bag fas fa-shopping-bag"></i></a>
     </div>
   </div>
 </div>

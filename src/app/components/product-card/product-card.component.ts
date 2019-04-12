@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import {Product} from '../../models/product';
 import { ImageService } from 'src/app/services/image/image.service';
 import { CartService } from 'src/app/services/cart/cart.service';
+import {MatSnackBar} from '@angular/material';
+
 
 @Component({
   selector: 'app-product-card',
@@ -13,7 +15,8 @@ export class ProductCardComponent implements OnInit {
   
   height :number;
   
-  constructor( private imageService: ImageService, private cartService: CartService) { 
+  constructor( private imageService: ImageService, private cartService: CartService,private snackBar: MatSnackBar) { 
+    
     this.height = 360;
   }
 
@@ -23,7 +26,14 @@ export class ProductCardComponent implements OnInit {
     })
   }
 
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+    })
+  }
+
   addToCart():void{
     this.cartService.add(this.product);
+    this.openSnackBar(`Added ${this.product.title} to cart`,'');
   }
 }
